@@ -18,3 +18,8 @@ pip install -r requirements.txt
 ## Running the tests
 
 If you launch the script it will post photos in the telegram channel every 10 seconds as a test. So after the test change the `TIME_SLEEP` variable as you need.
+
+
+### Project Goals
+
+The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org/).
