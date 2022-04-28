@@ -14,7 +14,16 @@ Then use `pip` (or `pip3`, if there is a conflict with Python2) to install depen
 pip install -r requirements.txt
 ```
 
+In the `.env` file set:
+1. API_KEY for NASA API, get it [here](https://api.nasa.gov/) after the registration.
+2. TG_TOKEN for Telegram API, get it [here](https://telegram.me/BotFather) (use the token of an already cerated bot or create a new one)
+3. CHAT_ID - get it from the Telegram channel description where you want to post photos
+4. DIR - path to the directory where all the photos will be downloaded to (or it will be 'image' by default)
 
-## Running the tests
+### Running the tests
 
 If you launch the script it will post photos in the telegram channel every 10 seconds as a test. So after the test change the `TIME_SLEEP` variable as you need.
+
+### Project Goals
+
+The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org/).
