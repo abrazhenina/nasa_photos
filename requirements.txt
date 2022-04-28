@@ -1,0 +1,8 @@
+datetime
+pathlib
+python-dotenv
+requests
+telegram
+telegram.ext
+time
+

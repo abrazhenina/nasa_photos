@@ -1,14 +1,13 @@
 import os
 
 import datetime
-import logging
 import requests
 import telegram
+import time
 
 from dotenv import load_dotenv
 from pathlib import Path
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater
 
 
 url_img1 = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/HST-SM4.jpeg'
@@ -50,14 +49,14 @@ def fetch_spacex_imgs(url, dir):
 def fetch_nasa_imgs(url, api_key, dir):
     params = {
         'api_key': api_key,
-        'count': 50,
+        'count': 30,
     }
     response = requests.get(url, params=params)
     response.raise_for_status()
     img_urls = []
     for img_data in response.json():
         img_urls.append(img_data['url'])
-    if img_urls:
+    if img_urls[0]:
         for img_url in img_urls:
             img_dir = ''
             if '.jpg' or '.gif' in img_url:
@@ -71,6 +70,10 @@ def fetch_nasa_imgs(url, api_key, dir):
                         img.write(img_response.content)
                 except:
                     print('Error with url')
+                    img_name = ''
+            else:
+                print('Error with url')
+                img_name = ''
 
 
 def fetch_nasa_epic_imgs(url_data, url_img, api_key, dir):
@@ -113,9 +116,26 @@ if __name__ == '__main__':
     bot = telegram.Bot(token=tg_token)
     print(bot.get_me())
     chat_id = '@nasa_cosmos_photos'
-    bot.send_message(chat_id=chat_id, text="Hi, it's Telegram")
-    bot.send_document(chat_id=chat_id, document=open('images/h.jpg', 'rb'))
+
+    imgs_paths = []
+    for root, dirs, files in os.walk("images", topdown=False):
+        for name in files:
+            imgs_paths.append(os.path.join(root, name))
+
     updater = Updater(tg_token)
     dispatcher = updater.dispatcher
     updater.start_polling()
+    bot.send_message(
+        chat_id=chat_id,
+        text="Hi! In this channel we'll post NASA photos of the space",
+    )
+
+    pause = int(os.getenv('TIME_SLEEP', default='86400'))
+    img_num = 0
+    while True:
+        if img_num < (len(imgs_paths)-1):
+            img_path = imgs_paths[img_num]
+            bot.send_document(chat_id=chat_id, document=open(img_path, 'rb'))
+            time.sleep(pause)
+            img_num += 1
     updater.idle()
