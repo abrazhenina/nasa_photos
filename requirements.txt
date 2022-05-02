@@ -1,8 +1,5 @@
-datetime
-pathlib
-python-dotenv
-requests
-telegram
-telegram.ext
-time
+python-dotenv==0.9.1
+python-telegram-bot==13.11
+requests==2.20.1
+
 
