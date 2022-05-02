@@ -15,10 +15,10 @@ pip install -r requirements.txt
 ```
 
 In the `.env` file set:
-1. API_KEY for NASA API, get it [here](https://api.nasa.gov/) after the registration.
+1. NASA_KEY for NASA API, get it [here](https://api.nasa.gov/) after the registration.
 2. TG_TOKEN for Telegram API, get it [here](https://telegram.me/BotFather) (use the token of an already cerated bot or create a new one)
-3. CHAT_ID - get it from the Telegram channel description where you want to post photos
-4. DIR - path to the directory where all the photos will be downloaded to (or it will be 'image' by default)
+3. TG_CHAT_ID - get it from the Telegram channel description where you want to post photos
+4. TIME_SLEEP - set the time (in seconds) of the pause between posts in the channel
 
 ### Running the tests
 
