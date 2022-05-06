@@ -8,16 +8,15 @@ from telegram.ext import Updater
 from fetch_nasa import fetch_nasa
 from fetch_spacex import fetch_spacex
 
-
-NASA_KEY = os.environ['NASA_KEY']
-TG_TOKEN = os.environ['TG_TOKEN']
-TG_CHAT_ID = os.environ['TG_CHAT_ID']
-TIME_SLEEP = os.getenv('TIME_SLEEP', default='86400')
 DIR = f'images'
 
 
 if __name__ == '__main__':
     load_dotenv()
+    NASA_KEY = os.environ['NASA_KEY']
+    TG_TOKEN = os.environ['TG_TOKEN']
+    TG_CHAT_ID = os.environ['TG_CHAT_ID']
+    TIME_SLEEP = os.getenv('TIME_SLEEP', default='86400')
     fetch_spacex()
     fetch_nasa(NASA_KEY)
     bot = telegram.Bot(token=TG_TOKEN)
