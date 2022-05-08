@@ -5,7 +5,7 @@ import requests
 from save_img import save_img
 
 
-def fetch_spacex(
+def fetch_spacex_imgs(
         url='https://api.spacexdata.com/v4/launches/',
         dir=f'images',
     ):
@@ -18,4 +18,4 @@ def fetch_spacex(
 
 
 if __name__ == '__main__':
-    fetch_spacex()
+    fetch_spacex_imgs()

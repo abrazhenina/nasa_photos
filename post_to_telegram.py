@@ -5,8 +5,8 @@ import telegram
 from dotenv import load_dotenv
 from telegram.ext import Updater
 
-from fetch_nasa import fetch_nasa
-from fetch_spacex import fetch_spacex
+from fetch_nasa import fetch_nasa_imgs
+from fetch_spacex import fetch_spacex_imgs
 
 DIR = f'images'
 
@@ -17,8 +17,8 @@ if __name__ == '__main__':
     TG_TOKEN = os.environ['TG_TOKEN']
     TG_CHAT_ID = os.environ['TG_CHAT_ID']
     TIME_SLEEP = os.getenv('TIME_SLEEP', default='86400')
-    fetch_spacex()
-    fetch_nasa(NASA_KEY)
+    fetch_spacex_imgs()
+    fetch_nasa_imgs(NASA_KEY)
     bot = telegram.Bot(token=TG_TOKEN)
     print(bot.get_me())
     imgs_paths = []
