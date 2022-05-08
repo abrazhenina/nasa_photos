@@ -16,9 +16,6 @@ This script also uses `save_img.py` script.
 4. `post_to_telegram.py` imports and launches `fetch_spacex_imgs` and `fetch_nasa_imgs` and posts all these photos to the given telegram chat using a telegram bot.
 
 
-![script execution example](https://bit.ly/3EvY8I2)
-
-
 ### How to install
 
 
