@@ -31,7 +31,14 @@ In the `.env` file set:
 3. TG_CHAT_ID - get it from the Telegram channel description where you want to post photos
 4. TIME_SLEEP - set the time (in seconds) of the pause between posts in the channel
 
-Then open the command line, use `cd` command to move to the folder with the script and launch it by `python post_to_telegram.py` or `python3 post_to_telegram.py` command.
+Then open the command line, use `cd` command to move to the folder with the script and launch it by
+```
+python post_to_telegram.py
+``` 
+or
+```
+python3 post_to_telegram.py
+``` 
 
 
 How this script works looks like this:
