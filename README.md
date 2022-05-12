@@ -16,9 +16,6 @@ This script also uses `save_img.py` script.
 4. `post_to_telegram.py` imports and launches `fetch_spacex_imgs` and `fetch_nasa_imgs` and posts all these photos to the given telegram chat using a telegram bot.
 
 
-![script execution example](https://bit.ly/3EvY8I2)
-
-
 ### How to install
 
 
@@ -34,7 +31,14 @@ In the `.env` file set:
 3. TG_CHAT_ID - get it from the Telegram channel description where you want to post photos
 4. TIME_SLEEP - set the time (in seconds) of the pause between posts in the channel
 
-Then open the command line, use `cd` command to move to the folder with the script and launch it by `python post_to_telegram.py` or `python3 post_to_telegram.py` command.
+Then open the command line, use `cd` command to move to the folder with the script and launch it by
+```
+python post_to_telegram.py
+``` 
+or
+```
+python3 post_to_telegram.py
+``` 
 
 
 How this script works looks like this:
