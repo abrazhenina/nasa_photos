@@ -33,7 +33,8 @@ if __name__ == '__main__':
     )
     pause = int(TIME_SLEEP)
     for img_path in imgs_paths:
-        bot.send_document(chat_id=TG_CHAT_ID, document=open(img_path, 'rb'))
+        with open(img_path, 'rb') as doc:
+            bot.send_document(chat_id=TG_CHAT_ID, document=doc.read())
         time.sleep(pause)
     updater.idle()
 

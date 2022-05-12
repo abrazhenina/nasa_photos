@@ -12,7 +12,7 @@ DIR_EPIC = f'images/nasa/epic'
 URL_NASA = 'https://api.nasa.gov/planetary/apod'
 URL_EPIC_DATA = 'https://api.nasa.gov/EPIC/api/natural/images'
 URL_EPIC_IMG = 'https://api.nasa.gov/EPIC/archive/natural/'
-NUM_NASA_PHOTOS = 30
+NUM_NASA_PHOTOS = 1
 
 
 def fetch_nasa_today_imgs(dir, nasa_key, url=URL_NASA):
@@ -21,10 +21,10 @@ def fetch_nasa_today_imgs(dir, nasa_key, url=URL_NASA):
     response.raise_for_status()
     img_urls = []
     for img_data in response.json():
-        if '.jpg' or '.jpeg' or '.gif' or '.png' in img_data['url']:
+        if img_data['media_type'] == 'image':
             img_urls.append(img_data['url'])
     for img_url in img_urls:
-            img_name = os.path.split(img_url)[1]
+            path, img_name = os.path.split(img_url)
             save_img(img_url, dir, img_name, params=params)
 
 
@@ -50,4 +50,4 @@ def fetch_nasa_imgs(nasa_key):
 if __name__ == '__main__':
     load_dotenv()
     nasa_key = os.environ['NASA_KEY']
-    fetch_nasa(nasa_key)
+    fetch_nasa_imgs(nasa_key)

@@ -13,10 +13,6 @@ def save_img(
     response = requests.get(url, params=params)
     response.raise_for_status()
     Path(dir).mkdir(parents=True, exist_ok=True)
-    dir_img = f'{dir}/{img_name}'
-    with open(dir_img, 'wb') as img:
+    img_path = f'{dir}/{img_name}'
+    with open(img_path, 'wb') as img:
         img.write(response.content)
-
-
-if __name__ == '__main__':
-    save_img()
